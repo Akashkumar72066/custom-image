@@ -1,10 +1,13 @@
+os: linux
+dist: jammy
+ 
 jobs:
   include:
-    - os: linux
-      language: python
-      python:
-       - "3.8"
-      arch: amd64
-      dist: focal
+    - name: "job one"
+      vm:
+        create:
+          name:  imag_11
       script:
-        - python hello_world.py
+        - echo "condition with job oneeee"
+        - echo $TRAVIS_COMMIT_MESSAGE
+        - sleep 50
